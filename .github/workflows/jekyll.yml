@@ -42,12 +42,10 @@ jobs:
           node-version: '20'
 
       - name: Install Node.js dependencies
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
+        run: npm install
+
+      - name: Build frontend assets
+        run: npm run build
 
       - name: Setup Pages
         id: pages
